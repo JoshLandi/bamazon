@@ -61,12 +61,12 @@ function purchaseProduct() {
                 var chosenQuant = inqRes.quant;
                 //test
                 console.log("Your chosen product: " + chosenProduct + " Quantity: " + chosenQuant);
-
+                console.log("-----------------------------------");
                 //Checking store if quantity is in stock
                 for (var i = 0; i < results.length; i++) {
                     if (chosenProduct == results[i].item_id) {
                         console.log("Searching quantity of " + results[i].product_name);
-
+                        console.log("-----------------------------------");
                         if (chosenQuant < results[i].stock_quantity) {
                             var updatedInventory = results[i].stock_quantity - chosenQuant;
 
@@ -81,6 +81,10 @@ function purchaseProduct() {
                                 ]
                             )
                             console.log("Purchase successful!");
+                            console.log("-----------------------------------");
+                            var cost = chosenQuant * results[i].price;
+                            console.log("Your cost: $" + cost);
+                            console.log("-----------------------------------");
                             listProducts();
                         } else {
                             console.log("We only have " + results[i].stock_quantity + " of those left.");
